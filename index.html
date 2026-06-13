@@ -58,18 +58,14 @@
             to   { transform: translate(30px, -30px); }
         }
 
-        /* Clouds animation */
+        /* Clouds */
         .clouds {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none; z-index: -1;
             overflow: hidden;
         }
-
         .cloud {
             position: absolute;
             background: white;
@@ -78,25 +74,20 @@
             filter: blur(25px);
             animation: moveCloud linear infinite;
         }
-
         .cloud:nth-child(1) { width: 250px; height: 90px; top: 8%; left: -300px; animation-duration: 60s; }
         .cloud:nth-child(2) { width: 320px; height: 110px; top: 25%; left: -400px; animation-duration: 75s; animation-delay: 8s; }
         .cloud:nth-child(3) { width: 200px; height: 70px; top: 50%; left: -250px; animation-duration: 55s; animation-delay: 15s; }
         .cloud:nth-child(4) { width: 280px; height: 100px; top: 70%; left: -350px; animation-duration: 70s; animation-delay: 20s; }
-
         @keyframes moveCloud {
             from { transform: translateX(0); }
             to   { transform: translateX(calc(100vw + 600px)); }
         }
 
-        /* Floating spores */
+        /* Spores, leaves, fireflies, butterfly, wind (tetap sama) */
         .spore {
-            position: fixed;
-            width: 6px; height: 6px;
+            position: fixed; width: 6px; height: 6px;
             background: rgba(170, 200, 140, 0.35);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 0;
+            border-radius: 50%; pointer-events: none; z-index: 0;
             animation: rise linear infinite;
             box-shadow: 0 0 12px rgba(170, 200, 140, 0.25);
         }
@@ -105,28 +96,20 @@
             50% { opacity: 0.7; transform: translateY(-50vh) translateX(10px) scale(1.1); }
             100% { transform: translateY(-110vh) translateX(-8px) scale(0.2); opacity: 0; }
         }
-
-        /* Falling leaves */
         .falling-leaf {
-            position: fixed;
-            width: 35px; height: 35px;
+            position: fixed; width: 35px; height: 35px;
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M25 5 C15 15 5 20 5 30 C5 40 15 45 25 40 C35 45 45 40 45 30 C45 20 35 15 25 5Z" fill="%2397b87b" opacity="0.35"/></svg>') no-repeat center / contain;
-            pointer-events: none;
-            z-index: 0;
+            pointer-events: none; z-index: 0;
             animation: fall linear infinite;
         }
         @keyframes fall {
             0% { transform: translateY(-5vh) rotate(0deg); opacity: 0.3; }
             100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
         }
-
-        /* Dancing leaves */
         .dancing-leaf {
-            position: fixed;
-            width: 30px; height: 30px;
+            position: fixed; width: 30px; height: 30px;
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M25 5 C15 15 5 20 5 30 C5 40 15 45 25 40 C35 45 45 40 45 30 C45 20 35 15 25 5Z" fill="%2397b87b" opacity="0.4"/></svg>') no-repeat center / contain;
-            pointer-events: none;
-            z-index: 0;
+            pointer-events: none; z-index: 0;
             animation: dance 16s ease-in-out infinite;
         }
         @keyframes dance {
@@ -137,29 +120,20 @@
             80% { transform: translate(50px, -70px) rotate(-30deg); opacity: 0.3; }
             100% { transform: translate(0, 0) rotate(0deg); opacity: 0.4; }
         }
-
-        /* Wind streaks */
         .wind-streak {
-            position: fixed;
-            width: 150px; height: 1px;
+            position: fixed; width: 150px; height: 1px;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
-            pointer-events: none;
-            z-index: 0;
+            pointer-events: none; z-index: 0;
             animation: blow 2.5s ease-out forwards;
         }
         @keyframes blow {
             0% { transform: translateX(-150px); opacity: 0.8; }
             100% { transform: translateX(calc(100vw + 150px)); opacity: 0; }
         }
-
-        /* Fireflies */
         .firefly {
-            position: fixed;
-            width: 10px; height: 10px;
+            position: fixed; width: 10px; height: 10px;
             background: radial-gradient(circle, #ffd966 0%, transparent 60%);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 0;
+            border-radius: 50%; pointer-events: none; z-index: 0;
             animation: fireflyFloat 15s ease-in-out infinite, fireflyGlow 2s ease-in-out infinite alternate;
         }
         @keyframes fireflyFloat {
@@ -173,14 +147,10 @@
             from { opacity: 0.25; box-shadow: 0 0 4px #ffb347; }
             to { opacity: 0.8; box-shadow: 0 0 12px #ffb347, 0 0 25px #ffb347; }
         }
-
-        /* Butterfly */
         .butterfly {
-            position: fixed;
-            width: 35px; height: 35px;
+            position: fixed; width: 35px; height: 35px;
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><g fill="%23e09f3e" opacity="0.4"><path d="M40 20 C30 10 10 10 5 20 C0 30 10 35 15 30 C15 35 10 45 5 55 C0 65 10 70 20 65 C30 60 35 55 40 50 C45 55 50 60 60 65 C70 70 80 65 75 55 C70 45 65 35 65 30 C70 35 80 30 75 20 C70 10 50 10 40 20Z"/></g></svg>') no-repeat center / contain;
-            pointer-events: none;
-            z-index: 0;
+            pointer-events: none; z-index: 0;
             opacity: 0.45;
             animation: flutter 12s ease-in-out infinite;
         }
@@ -193,14 +163,13 @@
             100% { transform: translate(0, 0) rotate(0deg); }
         }
 
-        /* Header */
+        /* Header, hero, sections, cards, chart, catalogue, team (tetap sama seperti kode terakhir kamu) */
         header {
             background: rgba(255, 255, 245, 0.92);
             backdrop-filter: blur(12px);
             padding: 15px 0;
             position: sticky;
-            top: 0;
-            z-index: 100;
+            top: 0; z-index: 100;
             box-shadow: 0 2px 15px rgba(0,0,0,0.04);
         }
         .nav-container {
@@ -211,13 +180,9 @@
         }
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #2d5e3b;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            font-size: 1.8rem; font-weight: 700;
+            color: #2d5e3b; text-decoration: none;
+            display: flex; align-items: center; gap: 8px;
             animation: logoPulse 3s ease-in-out infinite;
         }
         @keyframes logoPulse {
@@ -225,54 +190,39 @@
             50%     { text-shadow: 0 0 18px rgba(100,150,80,0.5); }
         }
         .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-            flex-wrap: wrap;
+            display: flex; gap: 25px;
+            list-style: none; flex-wrap: wrap;
         }
         .nav-links a {
-            text-decoration: none;
-            color: #2d5e3b;
-            font-weight: 500;
-            transition: 0.3s;
+            text-decoration: none; color: #2d5e3b;
+            font-weight: 500; transition: 0.3s;
             position: relative;
         }
         .nav-links a:hover { color: #5e3e2b; }
         .nav-links a::after {
-            content: '';
-            position: absolute;
+            content: ''; position: absolute;
             bottom: -4px; left: 0;
             width: 0; height: 2px;
-            background: #5e3e2b;
-            transition: 0.3s;
+            background: #5e3e2b; transition: 0.3s;
         }
         .nav-links a:hover::after { width: 100%; }
 
-        /* Hero */
         .hero {
             background: linear-gradient(135deg, #4b7b4b, #2d5e3b, #5e8e5e, #3b6b3b);
             background-size: 300% 300%;
             animation: gradientShift 12s ease infinite;
-            color: white;
-            padding: 140px 20px;
-            text-align: center;
-            min-height: 75vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
+            color: white; padding: 140px 20px;
+            text-align: center; min-height: 75vh;
+            display: flex; align-items: center; justify-content: center;
+            flex-direction: column; position: relative; overflow: hidden;
         }
         @keyframes gradientShift {
             0%,100% { background-position: 0% 50%; }
             50%     { background-position: 100% 50%; }
         }
         .hero::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            content: ""; position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
             background: url('https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
             opacity: 0.45;
             animation: slowZoom 20s ease infinite alternate;
@@ -282,35 +232,27 @@
             to   { transform: scale(1.08); }
         }
         .hero::after {
-            content: "";
-            position: absolute;
+            content: ""; position: absolute;
             top: -50%; left: -20%;
             width: 150%; height: 150%;
             background: radial-gradient(circle at 30% 20%, rgba(255, 235, 160, 0.25) 0%, transparent 60%);
             animation: sunMove 18s ease-in-out infinite alternate;
-            pointer-events: none;
-            z-index: 0;
+            pointer-events: none; z-index: 0;
         }
         @keyframes sunMove {
             from { transform: translate(0, 0) rotate(0deg); }
             to   { transform: translate(3%, 2%) rotate(3deg); }
         }
         .hero h1 {
-            font-size: 4rem;
-            text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
-            margin-bottom: 0.5rem;
-            color: white;
-            position: relative;
-            z-index: 1;
+            font-size: 4rem; text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
+            margin-bottom: 0.5rem; color: white;
+            position: relative; z-index: 1;
             animation: fadeUp 1.2s ease-out;
         }
         .hero p {
-            font-size: 1.3rem;
-            max-width: 650px;
+            font-size: 1.3rem; max-width: 650px;
             text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
-            margin-bottom: 25px;
-            position: relative;
-            z-index: 1;
+            margin-bottom: 25px; position: relative; z-index: 1;
             animation: fadeUp 1.4s ease-out;
         }
         @keyframes fadeUp {
@@ -318,18 +260,12 @@
             to   { opacity: 1; transform: translateY(0); }
         }
         .btn {
-            background: #f5f2eb;
-            color: #2d5e3b;
-            padding: 14px 34px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-            transition: 0.3s;
-            border: none;
-            cursor: pointer;
-            position: relative;
-            z-index: 1;
+            background: #f5f2eb; color: #2d5e3b;
+            padding: 14px 34px; border-radius: 50px;
+            text-decoration: none; font-weight: 600;
+            display: inline-block; transition: 0.3s;
+            border: none; cursor: pointer;
+            position: relative; z-index: 1;
             animation: fadeUp 1.6s ease-out;
         }
         .btn:hover {
@@ -338,44 +274,33 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
-        /* Sections */
         section { padding: 80px 0; position: relative; }
         .section-title {
-            text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            opacity: 0;
+            text-align: center; font-size: 2.8rem;
+            margin-bottom: 15px; opacity: 0;
             transform: translateY(25px);
             transition: 0.7s ease;
         }
         .section-title.visible { opacity: 1; transform: translateY(0); }
         .section-subtitle {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 50px;
-            color: #4a5a4a;
-            font-size: 1.1rem;
-            opacity: 0;
+            text-align: center; max-width: 700px;
+            margin: 0 auto 50px; color: #4a5a4a;
+            font-size: 1.1rem; opacity: 0;
             transform: translateY(25px);
             transition: 0.7s 0.2s ease;
         }
         .section-subtitle.visible { opacity: 1; transform: translateY(0); }
 
-        /* Cards */
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
+            gap: 30px; margin-top: 30px;
         }
         .card {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            background: white; padding: 30px;
+            border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.04);
             border-top: 5px solid #8fc97c;
-            transition: 0.3s;
-            opacity: 0;
+            transition: 0.3s; opacity: 0;
             transform: translateY(20px);
             animation: cardReveal 0.7s ease forwards;
         }
@@ -391,19 +316,14 @@
         }
         .card h3 { margin-bottom: 12px; color: #3b5e3b; }
 
-        /* Stats & Charts */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 25px;
-            text-align: center;
-            margin: 40px 0;
+            gap: 25px; text-align: center; margin: 40px 0;
         }
         .stat-card {
-            background: white;
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.04);
+            background: white; border-radius: 20px;
+            padding: 25px; box-shadow: 0 15px 30px rgba(0,0,0,0.04);
             transition: 0.3s;
             animation: softBounce 2s infinite alternate;
         }
@@ -413,47 +333,33 @@
         }
         .stat-card:hover { transform: scale(1.05); box-shadow: 0 20px 35px rgba(0,0,0,0.1); }
         .stat-number {
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: #2d5e3b;
-            margin: 10px 0;
+            font-size: 2.8rem; font-weight: 700;
+            color: #2d5e3b; margin: 10px 0;
             display: inline-block;
         }
         .chart-container {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            background: white; border-radius: 20px;
+            padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             margin-top: 40px;
         }
         .bar-chart {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-around;
-            height: 200px;
-            gap: 5px;
-            margin: 20px 0 10px;
+            display: flex; align-items: flex-end;
+            justify-content: space-around; height: 200px;
+            gap: 5px; margin: 20px 0 10px;
         }
         .bar {
-            width: 70px;
-            background: #2d5e3b;
-            border-radius: 8px 8px 0 0;
-            color: white;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            font-weight: 600;
+            width: 70px; background: #2d5e3b;
+            border-radius: 8px 8px 0 0; color: white;
+            display: flex; align-items: flex-end;
+            justify-content: center; font-weight: 600;
             transition: height 1s cubic-bezier(0.25, 0.8, 0.25, 1.2);
             position: relative;
         }
         .bar-label {
-            text-align: center;
-            font-size: 0.85rem;
-            color: #555;
-            margin-top: 6px;
+            text-align: center; font-size: 0.85rem;
+            color: #555; margin-top: 6px;
         }
 
-        /* Science */
         .science-bg {
             background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover;
             position: relative;
@@ -465,14 +371,11 @@
         .bio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+            gap: 25px; margin-top: 30px;
         }
         .bio-card {
-            background: white;
-            border-radius: 20px;
-            padding: 25px;
-            text-align: center;
+            background: white; border-radius: 20px;
+            padding: 25px; text-align: center;
             box-shadow: 0 10px 25px rgba(0,0,0,0.04);
             transition: 0.3s;
             animation: gentleFloat 3s ease-in-out infinite alternate;
@@ -488,18 +391,14 @@
         .bio-card:hover img { transform: scale(1.2) rotate(6deg); }
         .bio-card h4 { color: #3b5e3b; margin-bottom: 10px; }
 
-        /* Catalogue */
         .catalogue-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
+            gap: 30px; margin-top: 30px;
         }
         .product-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            background: white; border-radius: 20px;
+            overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05);
             transition: 0.3s;
             animation: gentleFloat 3s ease-in-out infinite alternate;
         }
@@ -510,42 +409,31 @@
             box-shadow: 0 20px 35px rgba(0,0,0,0.1);
         }
         .product-img {
-            height: 180px;
-            background-size: cover;
-            background-position: center;
-            transition: 0.5s;
+            height: 180px; background-size: cover;
+            background-position: center; transition: 0.5s;
         }
         .product-card:hover .product-img { transform: scale(1.06); }
         .product-info { padding: 20px; }
         .product-info h3 { margin-bottom: 8px; font-size: 1.2rem; }
         .price { color: #2d5e3b; font-weight: 700; margin: 8px 0; }
         .badge-eco {
-            background: #c8e6c9;
-            color: #2e4a2e;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-top: 8px;
+            background: #c8e6c9; color: #2e4a2e;
+            padding: 4px 12px; border-radius: 20px;
+            font-size: 0.8rem; font-weight: 600;
+            display: inline-block; margin-top: 8px;
         }
 
-        /* Team */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
-            text-align: center;
+            gap: 40px; margin-top: 40px; text-align: center;
         }
         .team-member img {
             width: 130px; height: 130px;
-            border-radius: 50%;
-            object-fit: cover;
+            border-radius: 50%; object-fit: cover;
             border: 4px solid #8fc97c;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            margin-bottom: 15px;
-            transition: 0.4s;
+            margin-bottom: 15px; transition: 0.4s;
             animation: avatarPulse 3s ease-in-out infinite;
         }
         @keyframes avatarPulse {
@@ -558,21 +446,35 @@
         }
         .team-member h4 { color: #2d5e3b; margin: 8px 0 4px; }
 
-        /* Decor */
         .decor-leaf {
-            position: absolute;
-            opacity: 0.08;
-            pointer-events: none;
-            z-index: 0;
+            position: absolute; opacity: 0.08;
+            pointer-events: none; z-index: 0;
         }
         .leaf-left { top: 60px; left: -40px; width: 250px; transform: rotate(15deg); }
         .leaf-right { bottom: 80px; right: -60px; width: 300px; transform: rotate(-10deg); }
 
+        /* ===== VIDEO WRAPPER BARU ===== */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 */
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border: 4px solid #8fc97c;
+            background: #000; /* fallback hitam */
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: none;
+            border-radius: 18px;
+        }
+
         footer {
-            background: #1e2e1e;
-            color: #ccc;
-            text-align: center;
-            padding: 30px;
+            background: #1e2e1e; color: #ccc;
+            text-align: center; padding: 30px;
             margin-top: 40px;
         }
 
@@ -649,35 +551,14 @@
                     <div class="bio-card"><a href="https://ibb.co.com/mpfvHjV"><img src="https://i.ibb.co.com/r9DbZjR/IMG-0073.webp" alt="Rice Husk"></a><h4>Rice Husk</h4><p>Abundant agricultural byproduct adds rigidity and texture, replacing synthetic fillers completely.</p></div>
                 </div>
 
-                <!-- Resources Section -->
+                <!-- Resources -->
                 <div style="margin-top: 60px;">
                     <h3 style="text-align:center; font-family:'Playfair Display',serif; font-size:2rem; color:#2d5e3b; margin-bottom:10px;">📚 Our Research & Documents</h3>
                     <p style="text-align:center; max-width:600px; margin:0 auto 40px; color:#4a5a4a;">Access our full proposal, scientific paper, and references to learn more about Biofoam.</p>
                     <div class="catalogue-grid" style="margin-top:0;">
-                        <div class="product-card" style="animation: gentleFloat 3s ease-in-out infinite alternate; border-left: 5px solid #8fc97c;">
-                            <div class="product-img" style="background-image:url('https://i.ibb.co.com/bMLZY93C/IMG-0102.png'); height:180px;"></div>
-                            <div class="product-info">
-                                <h3>Project Proposal</h3>
-                                <p>Complete project overview, methodology, and expected outcomes.</p>
-                                <a href="https://drive.google.com/uc?export=download&id=1k6hDq8gQM0K6k3QddCYcus8AaLTE8Hts" class="btn" style="display:block; text-align:center; margin-top:10px; background:#2d5e3b; color:white; padding:10px 20px; border-radius:30px; text-decoration:none;">View PDF</a>
-                            </div>
-                        </div>
-                        <div class="product-card" style="animation: gentleFloat 3s ease-in-out infinite alternate; animation-delay:0.3s; border-left: 5px solid #c4a35a;">
-                            <div class="product-img" style="background-image:url('https://i.ibb.co.com/SD8GS705/IMG-0106.jpg'); height:180px;"></div>
-                            <div class="product-info">
-                                <h3>Scientific Paper</h3>
-                                <p>Detailed research on mycelium‑based composite and biodegradability tests.</p>
-                                <a href="https://drive.google.com/drive/folders/1OwxGy6t8jIJVaWkDd_LmojVhlrsBAxdO?usp=sharing" class="btn" style="display:block; text-align:center; margin-top:10px; background:#2d5e3b; color:white; padding:10px 20px; border-radius:30px; text-decoration:none;">View PDF</a>
-                            </div>
-                        </div>
-                        <div class="product-card" style="animation: gentleFloat 3s ease-in-out infinite alternate; animation-delay:0.6s; border-left: 5px solid #7c9eb3;">
-                            <div class="product-img" style="background-image:url('https://i.ibb.co.com/gMqs1nqm/IMG-0104.jpg'); height:180px;"></div>
-                            <div class="product-info">
-                                <h3>References</h3>
-                                <p>Curated list of journals, articles, and sources supporting our innovation.</p>
-                                <a href="https://drive.google.com/drive/folders/1OwxGy6t8jIJVaWkDd_LmojVhlrsBAxdO?usp=sharing" class="btn" style="display:block; text-align:center; margin-top:10px; background:#2d5e3b; color:white; padding:10px 20px; border-radius:30px; text-decoration:none;">View PDF</a>
-                            </div>
-                        </div>
+                        <div class="product-card" style="animation: gentleFloat 3s ease-in-out infinite alternate; border-left: 5px solid #8fc97c;"><div class="product-img" style="background-image:url('https://i.ibb.co.com/bMLZY93C/IMG-0102.png'); height:180px;"></div><div class="product-info"><h3>Project Proposal</h3><p>Complete project overview, methodology, and expected outcomes.</p><a href="https://drive.google.com/uc?export=download&id=1k6hDq8gQM0K6k3QddCYcus8AaLTE8Hts" class="btn" style="display:block; text-align:center; margin-top:10px; background:#2d5e3b; color:white; padding:10px 20px; border-radius:30px; text-decoration:none;">View PDF</a></div></div>
+                        <div class="product-card" style="animation: gentleFloat 3s ease-in-out infinite alternate; animation-delay:0.3s; border-left: 5px solid #c4a35a;"><div class="product-img" style="background-image:url('https://i.ibb.co.com/SD8GS705/IMG-0106.jpg'); height:180px;"></div><div class="product-info"><h3>Scientific Paper</h3><p>Detailed research on mycelium‑based composite and biodegradability tests.</p><a href="https://drive.google.com/drive/folders/1OwxGy6t8jIJVaWkDd_LmojVhlrsBAxdO?usp=sharing" class="btn" style="display:block; text-align:center; margin-top:10px; background:#2d5e3b; color:white; padding:10px 20px; border-radius:30px; text-decoration:none;">View PDF</a></div></div>
+                        <div class="product-card" style="animation: gentleFloat 3s ease-in-out infinite alternate; animation-delay:0.6s; border-left: 5px solid #7c9eb3;"><div class="product-img" style="background-image:url('https://i.ibb.co.com/gMqs1nqm/IMG-0104.jpg'); height:180px;"></div><div class="product-info"><h3>References</h3><p>Curated list of journals, articles, and sources supporting our innovation.</p><a href="https://drive.google.com/drive/folders/1OwxGy6t8jIJVaWkDd_LmojVhlrsBAxdO?usp=sharing" class="btn" style="display:block; text-align:center; margin-top:10px; background:#2d5e3b; color:white; padding:10px 20px; border-radius:30px; text-decoration:none;">View PDF</a></div></div>
                     </div>
                 </div>
             </div>
@@ -707,14 +588,16 @@
                 <p style="text-align:center; margin-top:10px; font-style:italic">Source: UNEP, 2023</p>
                 <button class="btn" id="animateChart" style="display:block; margin:20px auto 0">Animate Chart</button>
                 
-                <!-- ========== VIDEO SECTION (YouTube embed, no autoplay) ========== -->
+                <!-- ===== VIDEO CONTAINER DENGAN BORDER ===== -->
                 <div id="videoContainer" style="display:none; margin-top:30px; text-align:center;">
-                    <iframe id="natureVideo" width="100%" height="400" 
-                        src="" 
-                        title="Nature video" frameborder="0" 
-                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen style="border-radius:20px; box-shadow:0 15px 30px rgba(0,0,0,0.1);">
-                    </iframe>
+                    <div class="video-wrapper">
+                        <iframe id="natureVideo" 
+                            src="" 
+                            title="Nature video" 
+                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
                 </div>
             </div>
         </div>
@@ -782,17 +665,15 @@
         function startWindCycle(){setTimeout(()=>{spawnWindGust();startWindCycle();},8000+Math.random()*12000);}
         startWindCycle();
 
-        // Chart & counters animation + VIDEO SHOW
+        // Chart & video
         document.getElementById('animateChart').addEventListener('click',function(){
             const bars=document.querySelectorAll('.bar');
             bars.forEach(bar=>{const targetHeight=bar.getAttribute('data-height');bar.style.height='0px';bar.textContent='';setTimeout(()=>{bar.style.height=targetHeight+'px';bar.textContent=targetHeight;},100);});
             const statNumbers=document.querySelectorAll('.stat-number');
             statNumbers.forEach(stat=>{const target=+stat.getAttribute('data-target');if(!target)return;const duration=1200;const startTime=performance.now();function update(now){const progress=Math.min((now-startTime)/duration,1);stat.textContent=Math.floor(progress*target);if(progress<1)requestAnimationFrame(update);else stat.textContent=target+(stat.closest('.stat-card')?.innerText.includes('K')?'K':'');}requestAnimationFrame(update);});
 
-            // Tampilkan video YouTube (ID: 7Y3T6T12CK8)
             const videoContainer=document.getElementById('videoContainer');
             const natureVideo=document.getElementById('natureVideo');
-            // Gunakan youtube-nocookie + controls (tanpa autoplay)
             natureVideo.src='https://www.youtube-nocookie.com/embed/7Y3T6T12CK8?controls=1&rel=0&loop=1&playlist=7Y3T6T12CK8';
             videoContainer.style.display='block';
             videoContainer.scrollIntoView({behavior:'smooth',block:'nearest'});
