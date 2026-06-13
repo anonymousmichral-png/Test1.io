@@ -649,12 +649,11 @@
                     <div class="bio-card"><a href="https://ibb.co.com/mpfvHjV"><img src="https://i.ibb.co.com/r9DbZjR/IMG-0073.webp" alt="Rice Husk"></a><h4>Rice Husk</h4><p>Abundant agricultural byproduct adds rigidity and texture, replacing synthetic fillers completely.</p></div>
                 </div>
 
-                <!-- ========== RESOURCES SECTION ========== -->
+                <!-- Resources Section -->
                 <div style="margin-top: 60px;">
                     <h3 style="text-align:center; font-family:'Playfair Display',serif; font-size:2rem; color:#2d5e3b; margin-bottom:10px;">📚 Our Research & Documents</h3>
                     <p style="text-align:center; max-width:600px; margin:0 auto 40px; color:#4a5a4a;">Access our full proposal, scientific paper, and references to learn more about Biofoam.</p>
                     <div class="catalogue-grid" style="margin-top:0;">
-                        <!-- Proposal Card -->
                         <div class="product-card" style="animation: gentleFloat 3s ease-in-out infinite alternate; border-left: 5px solid #8fc97c;">
                             <div class="product-img" style="background-image:url('https://i.ibb.co.com/bMLZY93C/IMG-0102.png'); height:180px;"></div>
                             <div class="product-info">
@@ -663,7 +662,6 @@
                                 <a href="https://drive.google.com/uc?export=download&id=1k6hDq8gQM0K6k3QddCYcus8AaLTE8Hts" class="btn" style="display:block; text-align:center; margin-top:10px; background:#2d5e3b; color:white; padding:10px 20px; border-radius:30px; text-decoration:none;">View PDF</a>
                             </div>
                         </div>
-                        <!-- Paper Card -->
                         <div class="product-card" style="animation: gentleFloat 3s ease-in-out infinite alternate; animation-delay:0.3s; border-left: 5px solid #c4a35a;">
                             <div class="product-img" style="background-image:url('https://i.ibb.co.com/SD8GS705/IMG-0106.jpg'); height:180px;"></div>
                             <div class="product-info">
@@ -672,7 +670,6 @@
                                 <a href="https://drive.google.com/drive/folders/1OwxGy6t8jIJVaWkDd_LmojVhlrsBAxdO?usp=sharing" class="btn" style="display:block; text-align:center; margin-top:10px; background:#2d5e3b; color:white; padding:10px 20px; border-radius:30px; text-decoration:none;">View PDF</a>
                             </div>
                         </div>
-                        <!-- References Card -->
                         <div class="product-card" style="animation: gentleFloat 3s ease-in-out infinite alternate; animation-delay:0.6s; border-left: 5px solid #7c9eb3;">
                             <div class="product-img" style="background-image:url('https://i.ibb.co.com/gMqs1nqm/IMG-0104.jpg'); height:180px;"></div>
                             <div class="product-info">
@@ -683,7 +680,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- ========== END RESOURCES ========== -->
             </div>
         </div>
     </section>
@@ -710,11 +706,15 @@
                 </div>
                 <p style="text-align:center; margin-top:10px; font-style:italic">Source: UNEP, 2023</p>
                 <button class="btn" id="animateChart" style="display:block; margin:20px auto 0">Animate Chart</button>
+                
+                <!-- ========== VIDEO SECTION (YouTube embed, no autoplay) ========== -->
                 <div id="videoContainer" style="display:none; margin-top:30px; text-align:center;">
-                    <video id="natureVideo" controls width="100%" height="400" style="border-radius:20px; box-shadow:0 15px 30px rgba(0,0,0,0.1);">
-                        <source src="" type="video/mp4">
-                        Browsermu tidak mendukung video.
-                    </video>
+                    <iframe id="natureVideo" width="100%" height="400" 
+                        src="" 
+                        title="Nature video" frameborder="0" 
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen style="border-radius:20px; box-shadow:0 15px 30px rgba(0,0,0,0.1);">
+                    </iframe>
                 </div>
             </div>
         </div>
@@ -782,15 +782,20 @@
         function startWindCycle(){setTimeout(()=>{spawnWindGust();startWindCycle();},8000+Math.random()*12000);}
         startWindCycle();
 
-        // Chart & counters animation
+        // Chart & counters animation + VIDEO SHOW
         document.getElementById('animateChart').addEventListener('click',function(){
             const bars=document.querySelectorAll('.bar');
             bars.forEach(bar=>{const targetHeight=bar.getAttribute('data-height');bar.style.height='0px';bar.textContent='';setTimeout(()=>{bar.style.height=targetHeight+'px';bar.textContent=targetHeight;},100);});
             const statNumbers=document.querySelectorAll('.stat-number');
             statNumbers.forEach(stat=>{const target=+stat.getAttribute('data-target');if(!target)return;const duration=1200;const startTime=performance.now();function update(now){const progress=Math.min((now-startTime)/duration,1);stat.textContent=Math.floor(progress*target);if(progress<1)requestAnimationFrame(update);else stat.textContent=target+(stat.closest('.stat-card')?.innerText.includes('K')?'K':'');}requestAnimationFrame(update);});
+
+            // Tampilkan video YouTube (ID: 7Y3T6T12CK8)
             const videoContainer=document.getElementById('videoContainer');
             const natureVideo=document.getElementById('natureVideo');
-            if(natureVideo.querySelector('source')?.getAttribute('src')?.trim()){natureVideo.pause();natureVideo.currentTime=0;videoContainer.style.display='block';videoContainer.scrollIntoView({behavior:'smooth',block:'nearest'});}
+            // Gunakan youtube-nocookie + controls (tanpa autoplay)
+            natureVideo.src='https://www.youtube-nocookie.com/embed/7Y3T6T12CK8?controls=1&rel=0&loop=1&playlist=7Y3T6T12CK8';
+            videoContainer.style.display='block';
+            videoContainer.scrollIntoView({behavior:'smooth',block:'nearest'});
         });
 
         // Scroll reveal
@@ -801,4 +806,3 @@
     </script>
 </body>
 </html>
-
